@@ -85,11 +85,11 @@ pip install -e .
 
 2. Download the MIMIC-IV dataset from PhysioNet. You will need to request access to the MIMIC-IV data, which requires following the credentialing process on PhysioNet. Note that it typically takes 2–3 days to receive approval. They will review your intended use to ensure it is not for commercial purposes or for direct use in large language models (LLMs), as both are prohibited. After receiving approval, you can proceed with downloading the dataset.
 
-2.1 [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
+3. [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
 
     Place the file at: ./dataset/mimiciv/note/*
 
-2.2 [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
+4. [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
 
     d_icd_diagnoses.csv.gz (855.8 KB)
 
@@ -102,7 +102,7 @@ pip install -e .
     Place them at: ./dataset/mimiciv/hosp/*
   
   
-2.3 Instructions:
+5. Instructions:
 
     Option A: Run the Notebooks
   
