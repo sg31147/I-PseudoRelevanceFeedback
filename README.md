@@ -72,32 +72,32 @@ Then, install the required packages and set up the project:
 pip install -e .
 ```
 
-2. Download the MIMIC-IV Dataset from PhysioNet.You will need access to MIMIC-IV data, which requires following the credential process on PhysioNet. Note that it typically takes 2–3 days to get approval. After receiving approval:
-   https://physionet.org/content/mimiciv/3.0/
-   2.1 [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
+2. Download the MIMIC-IV dataset from PhysioNet. You will need to request access to the MIMIC-IV data, which requires following the credentialing process on PhysioNet. Note that it typically takes 2–3 days to receive approval. They will review your intended use to ensure it is not for commercial purposes or for direct use in large language models (LLMs), as both are prohibited. After receiving approval, you can proceed with downloading the dataset.
 
-   Place the file at: ./dataset/mimiciv/note/discharge.csv.gz(~1.1 GB)
+  2.1 [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
 
-   2.2 [Reference tables](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV hosp files):
+      Place the file at: ./dataset/mimiciv/note/*
+   
+  2.2 Reference tables (MIMIC-IV hosp files):
+
           d_icd_diagnoses.csv.gz (855.8 KB)
+
           d_icd_procedures.csv.gz (575.4 KB)
+
           diagnoses_icd.csv.gz (32.0 MB)
+
           procedures_icd.csv.gz (7.4 MB)
 
-   Place them at: ./dataset/mimiciv/hosp/
+      Place them at: ./dataset/mimiciv/hosp/*
    
 
 
-
-2.2 reference dataset ( https://physionet.org/content/mimiciv/3.0/hosp/#files-panel ) follow my path
-             - ./dataset/mimiciv/hosp/d_icd_diagnoses.csv.gz (855.8 KB)
-             - ./dataset/mimiciv/hosp/d_icd_procedures.csv.gz (575.4 KB)
-             - ./dataset/mimiciv/hosp/diagnoses_icd.csv.gz (32.0 MB)
-             - ./dataset/mimiciv/hosp/procedures_icd.csv.gz (7.4 MB)
-2.3 download model from my public site. extract this file and follow this directory.
-             - ./experiment/*
-2.4 you can run my notebooks steo 1-5 follow each step to get model,...etc output. or skip by download my output that i prepare for you by download from my public site. you will got
-             - ./file/*
+  2.3 download model from my public site. extract this file and follow this directory.
+  
+      Place them at:            - ./experiment/*
+  
+  2.4 you can run my notebooks steo 1-5 follow each step to get model,...etc output. or skip by download my output that i prepare for you by download from my public site. you will got
+      Place them at:            - ./file/*
 
    
 bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
