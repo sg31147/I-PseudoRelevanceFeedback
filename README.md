@@ -91,13 +91,10 @@ pip install -e .
 
 4. [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
 
-    d_icd_diagnoses.csv.gz (855.8 KB)
-
-    d_icd_procedures.csv.gz (575.4 KB)
-
-    diagnoses_icd.csv.gz (32.0 MB)
-
-    procedures_icd.csv.gz (7.4 MB)
+    - d_icd_diagnoses.csv.gz (855.8 KB)
+    - d_icd_procedures.csv.gz (575.4 KB)
+    - diagnoses_icd.csv.gz (32.0 MB)
+    - procedures_icd.csv.gz (7.4 MB)
 
     Place them at: ./dataset/mimiciv/hosp/*
   
