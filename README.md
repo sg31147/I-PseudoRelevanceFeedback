@@ -3,8 +3,8 @@
 This paper is publicly available on npj Medicine.
 
 ```bibtex
-@inproceedings{edinAutomatedMedicalCoding2023,
-  address = {Taipei, Taiwan},
+@inproceedings{PSEUDO-RELEVANCE FEEDBACK,
+  address = {Nakhon Pathom, Thailand},
   title = {PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS FOR MEDICAL DOCUMENT SUMMARIZATION},
   isbn = {xxx-x-xxxx-xxxx-x},
   shorttitle = {PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS},
