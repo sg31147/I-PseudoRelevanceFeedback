@@ -31,7 +31,11 @@ Automatic medical coding is the task of automatically assigning diagnosis and pr
 | Model | Paper | Original Code |
 | ----- | ----- | ------------- |
 | CNN,Bi-GRU,CAML,MultiResCNN,LAAT,PLM-ICD   |[Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://arxiv.org/abs/2304.10909) | [link](https://github.com/JoakimEdin/medical-coding-reproducibility) | 
-
+| CNN,Bi-GRU,CAML,MultiResCNN,LAAT,PLM-ICD   |[Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://arxiv.org/abs/2304.10909) | [link](https://github.com/JoakimEdin/medical-coding-reproducibility) | 
+| CNN,Bi-GRU,CAML,MultiResCNN,LAAT,PLM-ICD   |[Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://arxiv.org/abs/2304.10909) | [link](https://github.com/JoakimEdin/medical-coding-reproducibility) | 
+| CNN,Bi-GRU,CAML,MultiResCNN,LAAT,PLM-ICD   |[Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://arxiv.org/abs/2304.10909) | [link](https://github.com/JoakimEdin/medical-coding-reproducibility) | 
+| CNN,Bi-GRU,CAML,MultiResCNN,LAAT,PLM-ICD   |[Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://arxiv.org/abs/2304.10909) | [link](https://github.com/JoakimEdin/medical-coding-reproducibility) | 
+| CNN,Bi-GRU,CAML,MultiResCNN,LAAT,PLM-ICD   |[Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://arxiv.org/abs/2304.10909) | [link](https://github.com/JoakimEdin/medical-coding-reproducibility) | 
 
 The splits are found in `files/data`. The splits are described in the paper.
 
