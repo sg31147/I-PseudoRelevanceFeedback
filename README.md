@@ -81,12 +81,12 @@ pip install -e .
           d_icd_diagnoses.csv.gz (855.8 KB)
    
           d_icd_procedures.csv.gz (575.4 KB)
-   
+
           diagnoses_icd.csv.gz (32.0 MB)
-   
+
           procedures_icd.csv.gz (7.4 MB)
-   
-          Place them at: ./dataset/mimiciv/hosp/
+
+   Place them at: ./dataset/mimiciv/hosp/
    
 
 
