@@ -1,6 +1,6 @@
 # ⚕️PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS FOR MEDICAL DOCUMENT SUMMARIZATION
 
-This paper is public on npjmedicine.
+This paper is publicly available on npj Medicine.
 
 ```bibtex
 @inproceedings{edinAutomatedMedicalCoding2023,
@@ -11,17 +11,20 @@ This paper is public on npjmedicine.
   doi = {xx.xx/xxxxxxx.xxxxxxx},
   booktitle = {Medicine Journal},
   publisher = {Npj medicine},
-  author = {Kitti Akkhawatthanakun1, Paisarn Muneesawang, Lalita Narupiyakul, and KonlakornWongpatikaseree},
+  author = {Kitti Akkhawatthanakun1, Paisarn Muneesawang, Lalita Narupiyakul, and Konlakorn Wongpatikaseree},
   year = {2025}
 }
 ```
 
 
 
-## Introduction 
-Many specialized language models have been widely adopted for predicting ICD-10 codes. However, there is still a lack of research aimed at improving the accuracy and reliability of these models. In response to this gap, we propose a novel approach to enhance prediction quality by leveraging techniques from information retrieval. Specifically, we apply the Rocchio algorithm to refine and optimize model outputs, building upon existing language models to improve their practical applicability. Furthermore, we have developed a web-based application—a dynamic playground where users can interact with and evaluate our method after following our proposed implementation steps.
+Introduction
+Many specialized language models have been widely adopted for predicting ICD-10 codes. However, there is still a lack of research focused on improving the accuracy and reliability of these models. In response to this gap, we propose a novel approach that incorporates information-retrieval techniques to enhance prediction quality. Specifically, our method uses the Rocchio algorithm to refine and optimize model outputs, building on existing language models to improve their practical applicability. We have also developed a web-based application—a dynamic playground—where users can interact with and evaluate our method once they have followed the implementation steps described below.
+
+
 
 ![My Image Description](/files/retrieval/pesudo_relevance_feedback.png)
+
 
 
 ### Associative research paper
@@ -57,10 +60,14 @@ Many specialized language models have been widely adopted for predicting ICD-10 
   </tr>
 </table>
 
-## Before you running please setting all this environment 
+## How to make 
 
-1. pip install -e . (make sure you are on python environment=3.10)
-2. Download dataset from physionet.
+1. Install the environment and dependencies
+Make sure you have Python 3.10 installed, then install the required packages:
+
+pip install -e . (make sure you are on python environment=3.10)
+
+3. Download dataset from physionet.
     2.1 physionet note => (I take 2-3 day for signing credential response please follow their rule physionet organization)  https://physionet.org/content/mimic-iv-note/2.2 follow my path
              - ./dataset/mimiciv/note/discharge.csv.gz (1.1 GB)
     2.2 reference dataset ( https://physionet.org/content/mimiciv/3.0/hosp/#files-panel ) follow my path
@@ -68,20 +75,19 @@ Many specialized language models have been widely adopted for predicting ICD-10 
              - ./dataset/mimiciv/hosp/d_icd_procedures.csv.gz (575.4 KB)
              - ./dataset/mimiciv/hosp/diagnoses_icd.csv.gz (32.0 MB)
              - ./dataset/mimiciv/hosp/procedures_icd.csv.gz (7.4 MB)
+    2.3 download model from my public site. extract this file and follow this directory.
+             - ./experiment/*
+    2.4 you can run my notebooks steo 1-5 follow each step to get model,...etc output. or skip by download my output that i prepare for you by download from my public site. you will got
+             - ./file/*
 
-
-## How to make model
-1. Download dataset from physionet 
-2. Install the packages `pip install . -e`
-
-## How to use retrieval function
+   
+    bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
 
 
 ![My Image Description](/files/retrieval/webapp.png)
 
-## How to run web application
-This code has been developed on MIMIC-IV and MIMIC-IV v2.2. 
-1. Download MIMIC-IV and MIMIC-IV-NOTE into your preferred location `path/to/mimiciv` and `path/to/mimiciv-note`. Please note that you need to complete training to acces the data. The training is free, but takes a couple of hours.  - [mimiciv](https://physionet.org/content/mimiciv/2.2/) and [mimiciv-note](https://physionet.org/content/mimic-iv-note/2.2/)
-2. Open the file `src/settings.py`
-3. Change the variable `DOWNLOAD_DIRECTORY_MIMICIV` to the path of your downloaded data `./dataset/mimiciv`
-4. Change the variable `DOWNLOAD_DIRECTORY_MIMICIV_NOTE` to the path of your downloaded data `./dataset/mimiciv-note`
+
+
+Alternarive from runnung if u are well know docker => just 1 hit build and run docker pull sg31147/pseudo_relevance_feedback:latest
+
+   
