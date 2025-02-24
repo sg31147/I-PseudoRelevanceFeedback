@@ -16,11 +16,10 @@ This paper is public on npjmedicine.
 }
 ```
 
-![My Image Description](/files/retrieval/webapp.png)
+
 
 ## Introduction 
 Many specialized language models have been widely adopted for predicting ICD-10 codes. However, there is still a lack of research aimed at improving the accuracy and reliability of these models. In response to this gap, we propose a novel approach to enhance prediction quality by leveraging techniques from information retrieval. Specifically, we apply the Rocchio algorithm to refine and optimize model outputs, building upon existing language models to improve their practical applicability. Furthermore, we have developed a web-based application—a dynamic playground where users can interact with and evaluate our method after following our proposed implementation steps.
-
 
 ![My Image Description](/files/retrieval/pesudo_relevance_feedback.png)
 
@@ -58,15 +57,29 @@ Many specialized language models have been widely adopted for predicting ICD-10 
   </tr>
 </table>
 
+## Before you running please setting all this environment 
+
+1. pip install -e . (make sure you are on python environment=3.10)
+2. Download dataset from physionet.
+    2.1 physionet note => (I take 2-3 day for signing credential response please follow their rule physionet organization)  https://physionet.org/content/mimic-iv-note/2.2 follow my path
+             - ./dataset/mimiciv/note/discharge.csv.gz (1.1 GB)
+    2.2 reference dataset ( https://physionet.org/content/mimiciv/3.0/hosp/#files-panel ) follow my path
+             - ./dataset/mimiciv/hosp/d_icd_diagnoses.csv.gz (855.8 KB)
+             - ./dataset/mimiciv/hosp/d_icd_procedures.csv.gz (575.4 KB)
+             - ./dataset/mimiciv/hosp/diagnoses_icd.csv.gz (32.0 MB)
+             - ./dataset/mimiciv/hosp/procedures_icd.csv.gz (7.4 MB)
 
 
-## How to reproduce results
-### Setup Conda environment
-1. Create a conda environement `conda create -n coding python=3.10`
+## How to make model
+1. Download dataset from physionet 
 2. Install the packages `pip install . -e`
 
+## How to use retrieval function
 
-### Prepare MIMIC-IV
+
+![My Image Description](/files/retrieval/webapp.png)
+
+## How to run web application
 This code has been developed on MIMIC-IV and MIMIC-IV v2.2. 
 1. Download MIMIC-IV and MIMIC-IV-NOTE into your preferred location `path/to/mimiciv` and `path/to/mimiciv-note`. Please note that you need to complete training to acces the data. The training is free, but takes a couple of hours.  - [mimiciv](https://physionet.org/content/mimiciv/2.2/) and [mimiciv-note](https://physionet.org/content/mimic-iv-note/2.2/)
 2. Open the file `src/settings.py`
