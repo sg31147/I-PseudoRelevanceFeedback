@@ -82,41 +82,41 @@ This paper is publicly available on npj Medicine.
 
 2. Download the MIMIC-IV dataset from PhysioNet. You will need to request access to the MIMIC-IV data, which requires following the credentialing process on PhysioNet. Note that it typically takes 2–3 days to receive approval. They will review your intended use to ensure it is not for commercial purposes or for direct use in large language models (LLMs), as both are prohibited. After receiving approval, you can proceed with downloading the dataset.
 
-    2.1 [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
-  
-        Place the file at: ./dataset/mimiciv/note/*
-     
-    2.2 [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
-  
-            d_icd_diagnoses.csv.gz (855.8 KB)
-  
-            d_icd_procedures.csv.gz (575.4 KB)
-  
-            diagnoses_icd.csv.gz (32.0 MB)
-  
-            procedures_icd.csv.gz (7.4 MB)
-  
-        Place them at: ./dataset/mimiciv/hosp/*
-     
-  
-    2.3 Instructions:
-   
-        Option A: Run the Notebooks
+  2.1 [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
 
-          Run notebooks steps 1–5 for data preprocessing, model training, and retrieval.
-        
-        Option B: Use Pre-Built Output
+      Place the file at: ./dataset/mimiciv/note/*
    
-          Skip the above steps by downloading the prepared output from my public site.
+  2.2 [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
+
+          d_icd_diagnoses.csv.gz (855.8 KB)
+
+          d_icd_procedures.csv.gz (575.4 KB)
+
+          diagnoses_icd.csv.gz (32.0 MB)
+
+          procedures_icd.csv.gz (7.4 MB)
+
+      Place them at: ./dataset/mimiciv/hosp/*
    
-          Place the files in:
-          - ./file/*
-          - ./experiment/*
-    
-    **Web Application Demo**
-   
-    To see the web application in action, run notebook step 6 to view the final output.
+
+  2.3 Instructions:
+ 
+      Option A: Run the Notebooks
+
+        Run notebooks steps 1–5 for data preprocessing, model training, and retrieval.
       
+      Option B: Use Pre-Built Output
+ 
+        Skip the above steps by downloading the prepared output from my public site.
+ 
+        Place the files in:
+        - ./file/*
+        - ./experiment/*
+  
+  **Web Application Demo**
+ 
+  To see the web application in action, run notebook step 6 to view the final output.
+    
 
 
 **Docker Alternative**
