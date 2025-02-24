@@ -113,16 +113,17 @@ This paper is publicly available on npj Medicine.
           - ./file/*
           - ./experiment/*
     
-    Web Application Demo
+    **Web Application Demo**
     To see the web application in action, run notebook step 6 to view the final output.
       
-      
   
-  ## Docker Alternative
-  If you are comfortable with Docker, you can use the provided Docker Compose file to pull and run our pre-built image with a single command:
-  ```
-  docker compose up
-  ```
-  ![My Image Description](/files/retrieval/webapp.png)
-  
-  
+
+**Docker Alternative**
+
+If you are comfortable with Docker, you can use the provided Docker Compose file to pull and run our pre-built image with a single command:
+```
+docker compose up
+```
+![My Image Description](/files/retrieval/webapp.png)
+
+
