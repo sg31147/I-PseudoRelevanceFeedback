@@ -65,7 +65,9 @@ Many specialized language models have been widely adopted for predicting ICD-10 
 1. Install the environment and dependencies
 Make sure you have Python 3.10 installed, then install the required packages:
 
+```bibtex
 pip install -e . (make sure you are on python environment=3.10)
+```
 
 3. Download dataset from physionet.
     2.1 physionet note => (I take 2-3 day for signing credential response please follow their rule physionet organization)  https://physionet.org/content/mimic-iv-note/2.2 follow my path
