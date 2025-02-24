@@ -97,13 +97,23 @@ This paper is publicly available on npj Medicine.
         Place them at: ./dataset/mimiciv/hosp/*
      
   
-  
-    2.3 download model from my public site. extract this file and follow this directory.
+    2.3 Instructions:
+   
+        Option A: Run the Notebooks
+   
+        Run notebooks steps 1–5 for data preprocessing, model training, and retrieval.
+        
+        Option B: Use Pre-Built Output
+   
+        Skip the above steps by downloading the prepared output from my public site.
+   
+        Place the files in:
+        - ./file/*
+        - ./experiment/*
     
-        Place them at:            - ./experiment/*
-    
-    2.4 you can run my notebooks steo 1-5 follow each step to get model,...etc output. or skip by download my output that i prepare for you by download from my public site. you will got
-        Place them at:            - ./file/*
+       
+
+
   
      
   bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
