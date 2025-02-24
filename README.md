@@ -78,7 +78,7 @@ pip install -e .
 
       Place the file at: ./dataset/mimiciv/note/*
    
-  2.2 Reference tables (MIMIC-IV hosp files):
+  2.2 [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
 
           d_icd_diagnoses.csv.gz (855.8 KB)
 
