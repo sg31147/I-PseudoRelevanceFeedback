@@ -72,13 +72,16 @@ Then, install the required packages and set up the project:
 pip install -e .
 ```
 
-2. Download the MIMIC-IV Dataset from PhysioNet
+2. Download the MIMIC-IV Dataset from PhysioNet.You will need access to MIMIC-IV data, which requires following the credential process on PhysioNet. Note that it typically takes 2–3 days to get approval. After receiving approval:
+   2.1 Clinical notes (MIMIC-IV Note):Place the file at: ./dataset/mimiciv/note/discharge.csv.gz(~1.1 GB)
+   2.2 Reference tables (MIMIC-IV hosp files):
+          d_icd_diagnoses.csv.gz (855.8 KB)
+          d_icd_procedures.csv.gz (575.4 KB)
+          diagnoses_icd.csv.gz (32.0 MB)
+          procedures_icd.csv.gz (7.4 MB)
+          Place them at: ./dataset/mimiciv/hosp/
    
-2.1 PhysioNet Notes
-(It may take 2–3 days for credential approval. Please follow the guidelines at the PhysioNet organization.)
-Place the file here:
 
-./dataset/mimiciv/note/discharge.csv.gz  (1.1 GB)
 
 
 2.2 reference dataset ( https://physionet.org/content/mimiciv/3.0/hosp/#files-panel ) follow my path
@@ -95,8 +98,6 @@ Place the file here:
 bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
 
 
-![My Image Description](/files/retrieval/webapp.png)
-
 
 
 ## Docker Alternative
@@ -104,4 +105,6 @@ If you are comfortable with Docker, you can use the provided Docker Compose file
 ```
 docker compose up
 ```
-   
+![My Image Description](/files/retrieval/webapp.png)
+
+
