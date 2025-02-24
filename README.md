@@ -100,16 +100,16 @@ This paper is publicly available on npj Medicine.
     2.3 Instructions:
    
         Option A: Run the Notebooks
-   
-        Run notebooks steps 1–5 for data preprocessing, model training, and retrieval.
+
+          Run notebooks steps 1–5 for data preprocessing, model training, and retrieval.
         
         Option B: Use Pre-Built Output
    
-        Skip the above steps by downloading the prepared output from my public site.
+          Skip the above steps by downloading the prepared output from my public site.
    
-        Place the files in:
-        - ./file/*
-        - ./experiment/*
+          Place the files in:
+          - ./file/*
+          - ./experiment/*
     
        
 
