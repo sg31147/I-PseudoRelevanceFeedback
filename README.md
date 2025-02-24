@@ -116,7 +116,7 @@ pip install -e .
       - ./file/*
       - ./experiment/*
 
-**Web Application Demo**
+**Web Application Playground**
 
 To see the web application in action, run notebook step 6 to view the final output.
 
