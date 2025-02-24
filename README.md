@@ -66,12 +66,24 @@ Many specialized language models have been widely adopted for predicting ICD-10 
 Make sure you have Python 3.10 installed, then install the required packages:
 
 ```bibtex
-pip install -e . (make sure you are on python environment=3.10)
+conda create -n pseudo_relevance python=3.10
+conda activate pseudo_relevance
+```
+Then, install the required packages and set up the project:
+
+```bibtex
+pip install -e .
 ```
 
-3. Download dataset from physionet.
-    2.1 physionet note => (I take 2-3 day for signing credential response please follow their rule physionet organization)  https://physionet.org/content/mimic-iv-note/2.2 follow my path
-             - ./dataset/mimiciv/note/discharge.csv.gz (1.1 GB)
+2. Download the MIMIC-IV Dataset from PhysioNet
+   
+2.1 PhysioNet Notes
+(It may take 2–3 days for credential approval. Please follow the guidelines at the PhysioNet organization.)
+Place the file here:
+
+./dataset/mimiciv/note/discharge.csv.gz  (1.1 GB)
+
+
     2.2 reference dataset ( https://physionet.org/content/mimiciv/3.0/hosp/#files-panel ) follow my path
              - ./dataset/mimiciv/hosp/d_icd_diagnoses.csv.gz (855.8 KB)
              - ./dataset/mimiciv/hosp/d_icd_procedures.csv.gz (575.4 KB)
