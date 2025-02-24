@@ -71,8 +71,9 @@ Many specialized language models have been widely adopted for predicting ICD-10 
 Make sure you have Python 3.10 installed, then install the required packages:
 
 ```bibtex
-conda create -n pseudo_relevance python=3.10
-conda activate pseudo_relevance
+python -m venv pseudo_relevance_feedback
+cd ./pseudo_relevance_feedback
+source ./bin/activate
 ```
 
 Then, install the required packages and set up the project:
