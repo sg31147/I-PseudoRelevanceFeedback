@@ -32,23 +32,11 @@ Automatic medical coding is the task of automatically assigning diagnosis and pr
     <td rowspan="6">
       <a href="https://arxiv.org/abs/2304.10909">Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study</a>
     </td>
-    <td><a href="https://github.com/JoakimEdin/medical-coding-reproducibility">link</a></td>
+    <td rowspan="6">
+      <a href="https://github.com/JoakimEdin/medical-coding-reproducibility">link</a>
+    </td>
   </tr>
-  <tr>
-    <td><a href="https://github.com/JoakimEdin/medical-coding-reproducibility">link</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/JoakimEdin/medical-coding-reproducibility">link</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/JoakimEdin/medical-coding-reproducibility">link</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/JoakimEdin/medical-coding-reproducibility">link</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://github.com/JoakimEdin/medical-coding-reproducibility">link</a></td>
-  </tr>
+
 </table>
 
 
