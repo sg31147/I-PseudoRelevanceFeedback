@@ -16,7 +16,7 @@ This paper is publicly available on npj Medicine.
 }
 ```
 
-## Introduction
+**Introduction**
 
   Many specialized language models have been widely adopted for predicting ICD-10 codes. However, there is still a lack of research focused on improving the accuracy and reliability of these models. In response to this gap, we propose a novel approach that incorporates information-retrieval techniques to enhance prediction quality. Specifically, our method uses the Rocchio algorithm to refine and optimize model outputs, building on existing language models to improve their practical applicability. We have also developed a web-based application—a dynamic playground—where users can interact with and evaluate our method once they have followed the implementation steps described below.
 
@@ -24,7 +24,8 @@ This paper is publicly available on npj Medicine.
 ![My Image Description](/files/retrieval/pesudo_relevance_feedback.png)
 
 
-### Related Research
+**Related Research**
+
 <table style="margin: auto; border-collapse: collapse;">
   <tr>
     <th style="text-align: center; vertical-align: middle;">Model</th>
@@ -63,7 +64,8 @@ This paper is publicly available on npj Medicine.
 </table>
 
 
-## Setup and Usage 
+**Setup and Usage**
+
 1. Install the environment and dependencies
     Make sure you have Python 3.10 installed, then install the required packages:
   
@@ -111,15 +113,10 @@ This paper is publicly available on npj Medicine.
           - ./file/*
           - ./experiment/*
     
-       
-
-
-  
-     
-  bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
-  
-  
-  
+    Web Application Demo
+    To see the web application in action, run notebook step 6 to view the final output.
+      
+      
   
   ## Docker Alternative
   If you are comfortable with Docker, you can use the provided Docker Compose file to pull and run our pre-built image with a single command:
