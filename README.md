@@ -25,37 +25,43 @@ Many specialized language models have been widely adopted for predicting ICD-10 
 
 
 ### Related Research
-<table>
+<table style="margin: auto; border-collapse: collapse;">
   <tr>
-    <th>Model</th>
-    <th>Paper</th>
-    <th>Original Code</th>
+    <th style="text-align: center; vertical-align: middle;">Model</th>
+    <th style="text-align: center; vertical-align: middle;">Paper</th>
+    <th style="text-align: center; vertical-align: middle;">Original Code</th>
   </tr>
   <tr>
-    <td>CNN</td>
-    <td rowspan="6">
-      <a href="https://arxiv.org/abs/2304.10909">Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study</a><br>
+    <td style="text-align: center; vertical-align: middle;">CNN</td>
+    <td rowspan="6" style="text-align: center; vertical-align: middle;">
+      <a href="https://arxiv.org/abs/2304.10909">
+        Automated Medical Coding on MIMIC-III and MIMIC-IV: 
+        A Critical Review and Replicability Study
+      </a>
     </td>
-    <td rowspan="6">
-      <a href="https://github.com/JoakimEdin/medical-coding-reproducibility">Original Code</a>
+    <td rowspan="6" style="text-align: center; vertical-align: middle;">
+      <a href="https://github.com/JoakimEdin/medical-coding-reproducibility">
+        Original Code
+      </a>
     </td>
   </tr>
   <tr>
-    <td>Bi-GRU</td>
+    <td style="text-align: center; vertical-align: middle;">Bi-GRU</td>
   </tr>
   <tr>
-    <td>CAML</td>
+    <td style="text-align: center; vertical-align: middle;">CAML</td>
   </tr>
   <tr>
-    <td>MultiResCNN</td>
+    <td style="text-align: center; vertical-align: middle;">MultiResCNN</td>
   </tr>
   <tr>
-    <td>LAAT</td>
+    <td style="text-align: center; vertical-align: middle;">LAAT</td>
   </tr>
   <tr>
-    <td>PLM-ICD</td>
+    <td style="text-align: center; vertical-align: middle;">PLM-ICD</td>
   </tr>
 </table>
+
 
 ## Setup and Usage 
 1. Install the environment and dependencies
