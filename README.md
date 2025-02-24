@@ -67,18 +67,18 @@ This paper is publicly available on npj Medicine.
 **Setup and Usage**
 
 1. Install the environment and dependencies
-    Make sure you have Python 3.10 installed, then install the required packages:
-  
-    ```bibtex
-    conda create -n pseudo_relevance python=3.10
-    conda activate pseudo_relevance
-    ```
-  
-    Then, install the required packages and set up the project:
-  
-    ```bibtex
-    pip install -e .
-    ```
+  Make sure you have Python 3.10 installed, then install the required packages:
+
+  ```bibtex
+  conda create -n pseudo_relevance python=3.10
+  conda activate pseudo_relevance
+  ```
+
+  Then, install the required packages and set up the project:
+
+  ```bibtex
+  pip install -e .
+  ```
 
 2. Download the MIMIC-IV dataset from PhysioNet. You will need to request access to the MIMIC-IV data, which requires following the credentialing process on PhysioNet. Note that it typically takes 2–3 days to receive approval. They will review your intended use to ensure it is not for commercial purposes or for direct use in large language models (LLMs), as both are prohibited. After receiving approval, you can proceed with downloading the dataset.
 
@@ -114,7 +114,7 @@ This paper is publicly available on npj Medicine.
         - ./experiment/*
   
   **Web Application Demo**
- 
+  
   To see the web application in action, run notebook step 6 to view the final output.
     
 
