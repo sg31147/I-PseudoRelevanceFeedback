@@ -74,42 +74,42 @@ pip install -e .
 
 2. Download the MIMIC-IV dataset from PhysioNet. You will need to request access to the MIMIC-IV data, which requires following the credentialing process on PhysioNet. Note that it typically takes 2–3 days to receive approval. They will review your intended use to ensure it is not for commercial purposes or for direct use in large language models (LLMs), as both are prohibited. After receiving approval, you can proceed with downloading the dataset.
 
-  2.1 [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
-
-      Place the file at: ./dataset/mimiciv/note/*
-   
-  2.2 [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
-
-          d_icd_diagnoses.csv.gz (855.8 KB)
-
-          d_icd_procedures.csv.gz (575.4 KB)
-
-          diagnoses_icd.csv.gz (32.0 MB)
-
-          procedures_icd.csv.gz (7.4 MB)
-
-      Place them at: ./dataset/mimiciv/hosp/*
-   
-
-
-  2.3 download model from my public site. extract this file and follow this directory.
+    2.1 [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
   
-      Place them at:            - ./experiment/*
+        Place the file at: ./dataset/mimiciv/note/*
+     
+    2.2 [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
   
-  2.4 you can run my notebooks steo 1-5 follow each step to get model,...etc output. or skip by download my output that i prepare for you by download from my public site. you will got
-      Place them at:            - ./file/*
-
-   
-bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
-
-
-
-
-## Docker Alternative
-If you are comfortable with Docker, you can use the provided Docker Compose file to pull and run our pre-built image with a single command:
-```
-docker compose up
-```
-![My Image Description](/files/retrieval/webapp.png)
-
-
+            d_icd_diagnoses.csv.gz (855.8 KB)
+  
+            d_icd_procedures.csv.gz (575.4 KB)
+  
+            diagnoses_icd.csv.gz (32.0 MB)
+  
+            procedures_icd.csv.gz (7.4 MB)
+  
+        Place them at: ./dataset/mimiciv/hosp/*
+     
+  
+  
+    2.3 download model from my public site. extract this file and follow this directory.
+    
+        Place them at:            - ./experiment/*
+    
+    2.4 you can run my notebooks steo 1-5 follow each step to get model,...etc output. or skip by download my output that i prepare for you by download from my public site. you will got
+        Place them at:            - ./file/*
+  
+     
+  bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
+  
+  
+  
+  
+  ## Docker Alternative
+  If you are comfortable with Docker, you can use the provided Docker Compose file to pull and run our pre-built image with a single command:
+  ```
+  docker compose up
+  ```
+  ![My Image Description](/files/retrieval/webapp.png)
+  
+  
