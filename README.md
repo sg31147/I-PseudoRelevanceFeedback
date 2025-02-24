@@ -67,7 +67,7 @@ Many specialized language models have been widely adopted for predicting ICD-10 
 **Setup and Usage**
 
 1. Install the environment and dependencies
-   
+
 Make sure you have Python 3.10 installed, then install the required packages:
 
 ```bibtex
@@ -87,7 +87,7 @@ pip install -e .
 
 3. [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
 
-    Place the file at: ./dataset/mimiciv/note/*
+    	Place the file at: ./dataset/mimiciv/note/*
 
 4. [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
 
@@ -96,7 +96,7 @@ pip install -e .
     - diagnoses_icd.csv.gz (32.0 MB)
     - procedures_icd.csv.gz (7.4 MB)
 
-    Place them at: ./dataset/mimiciv/hosp/*
+			Place them at: ./dataset/mimiciv/hosp/*
   
   
 5. Instructions:
