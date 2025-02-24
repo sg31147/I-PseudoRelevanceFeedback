@@ -120,11 +120,11 @@ pip install -e .
 
 To see the web application in action, run notebook step 6 to view the final output.
 
-
+![My Image Description](/files/retrieval/webapp.png)
 
 **Docker Alternative**
 
-![My Image Description](/files/retrieval/webapp.png)
+
 
 If you’re comfortable with Docker, you can use the included Docker Compose file to pull and run the pre-built image:
 
