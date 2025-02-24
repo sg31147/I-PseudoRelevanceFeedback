@@ -18,7 +18,7 @@ This paper is publicly available on npj Medicine.
 
 **Introduction**
 
-  Many specialized language models have been widely adopted for predicting ICD-10 codes. However, there is still a lack of research focused on improving the accuracy and reliability of these models. In response to this gap, we propose a novel approach that incorporates information-retrieval techniques to enhance prediction quality. Specifically, our method uses the Rocchio algorithm to refine and optimize model outputs, building on existing language models to improve their practical applicability. We have also developed a web-based application—a dynamic playground—where users can interact with and evaluate our method once they have followed the implementation steps described below.
+Many specialized language models have been widely adopted for predicting ICD-10 codes. However, there is still a lack of research focused on improving the accuracy and reliability of these models. In response to this gap, we propose a novel approach that incorporates information-retrieval techniques to enhance prediction quality. Specifically, our method uses the Rocchio algorithm to refine and optimize model outputs, building on existing language models to improve their practical applicability. We have also developed a web-based application—a dynamic playground—where users can interact with and evaluate our method once they have followed the implementation steps described below.
 
 
 ![My Image Description](/files/retrieval/pesudo_relevance_feedback.png)
@@ -67,48 +67,48 @@ This paper is publicly available on npj Medicine.
 **Setup and Usage**
 
 1. Install the environment and dependencies
-  Make sure you have Python 3.10 installed, then install the required packages:
+Make sure you have Python 3.10 installed, then install the required packages:
 
-  ```bibtex
-  conda create -n pseudo_relevance python=3.10
-  conda activate pseudo_relevance
-  ```
+```bibtex
+conda create -n pseudo_relevance python=3.10
+conda activate pseudo_relevance
+```
 
-  Then, install the required packages and set up the project:
+Then, install the required packages and set up the project:
 
-  ```bibtex
-  pip install -e .
-  ```
+```bibtex
+pip install -e .
+```
 
 2. Download the MIMIC-IV dataset from PhysioNet. You will need to request access to the MIMIC-IV data, which requires following the credentialing process on PhysioNet. Note that it typically takes 2–3 days to receive approval. They will review your intended use to ensure it is not for commercial purposes or for direct use in large language models (LLMs), as both are prohibited. After receiving approval, you can proceed with downloading the dataset.
 
   2.1 [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
-
+  
       Place the file at: ./dataset/mimiciv/note/*
-   
+  
   2.2 [Reference tables](https://physionet.org/content/mimiciv/3.0/) (MIMIC-IV hosp files):
+  
+      d_icd_diagnoses.csv.gz (855.8 KB)
 
-          d_icd_diagnoses.csv.gz (855.8 KB)
+      d_icd_procedures.csv.gz (575.4 KB)
 
-          d_icd_procedures.csv.gz (575.4 KB)
+      diagnoses_icd.csv.gz (32.0 MB)
 
-          diagnoses_icd.csv.gz (32.0 MB)
-
-          procedures_icd.csv.gz (7.4 MB)
-
+      procedures_icd.csv.gz (7.4 MB)
+  
       Place them at: ./dataset/mimiciv/hosp/*
-   
-
+  
+  
   2.3 Instructions:
- 
+  
       Option A: Run the Notebooks
-
+    
         Run notebooks steps 1–5 for data preprocessing, model training, and retrieval.
       
       Option B: Use Pre-Built Output
- 
+    
         Skip the above steps by downloading the prepared output from my public site.
- 
+    
         Place the files in:
         - ./file/*
         - ./experiment/*
@@ -116,15 +116,17 @@ This paper is publicly available on npj Medicine.
   **Web Application Demo**
   
   To see the web application in action, run notebook step 6 to view the final output.
-    
+  
+  
+  
+  **Docker Alternative**
+  
+  ![My Image Description](/files/retrieval/webapp.png)
+  
+  If you’re comfortable with Docker, you can use the included Docker Compose file to pull and run the pre-built image:
+  
+  ```
+  docker compose up
+  ```
 
-
-**Docker Alternative**
-
-![My Image Description](/files/retrieval/webapp.png)
-
-If you’re comfortable with Docker, you can use the included Docker Compose file to pull and run the pre-built image:
-
-```
-docker compose up
-```
+  Enjoy exploring this cutting-edge approach to medical document summarization—may it illuminate new pathways for more efficient, patient-centered care.
