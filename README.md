@@ -121,12 +121,10 @@ This paper is publicly available on npj Medicine.
 
 **Docker Alternative**
 
+![My Image Description](/files/retrieval/webapp.png)
+
 If you’re comfortable with Docker, you can use the included Docker Compose file to pull and run the pre-built image:
 
 ```
 docker compose up
 ```
-
-![My Image Description](/files/retrieval/webapp.png)
-
-
