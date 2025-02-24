@@ -24,20 +24,32 @@ Automatic medical coding is the task of automatically assigning diagnosis and pr
 <table>
   <tr>
     <th>Model</th>
-    <th>Paper</th>
-    <th>Original Code</th>
+    <th>Paper & Original Code</th>
   </tr>
   <tr>
-    <td rowspan="6">CNN, Bi-GRU, CAML, MultiResCNN, LAAT, PLM-ICD</td>
+    <td>CNN</td>
     <td rowspan="6">
-      <a href="https://arxiv.org/abs/2304.10909">Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study</a>
-    </td>
-    <td rowspan="6">
-      <a href="https://github.com/JoakimEdin/medical-coding-reproducibility">link</a>
+      <a href="https://arxiv.org/abs/2304.10909">Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study</a><br>
+      <a href="https://github.com/JoakimEdin/medical-coding-reproducibility">Original Code</a>
     </td>
   </tr>
-
+  <tr>
+    <td>Bi-GRU</td>
+  </tr>
+  <tr>
+    <td>CAML</td>
+  </tr>
+  <tr>
+    <td>MultiResCNN</td>
+  </tr>
+  <tr>
+    <td>LAAT</td>
+  </tr>
+  <tr>
+    <td>PLM-ICD</td>
+  </tr>
 </table>
+
 
 
 ## How to reproduce results
