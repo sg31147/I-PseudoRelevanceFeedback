@@ -24,12 +24,15 @@ Automatic medical coding is the task of automatically assigning diagnosis and pr
 <table>
   <tr>
     <th>Model</th>
-    <th>Paper & Original Code</th>
+    <th>Paper</th>
+    <th>Original Code</th>
   </tr>
   <tr>
     <td>CNN</td>
     <td rowspan="6">
       <a href="https://arxiv.org/abs/2304.10909">Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study</a><br>
+    </td>
+    <td rowspan="6">
       <a href="https://github.com/JoakimEdin/medical-coding-reproducibility">Original Code</a>
     </td>
   </tr>
