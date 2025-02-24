@@ -66,7 +66,8 @@ Many specialized language models have been widely adopted for predicting ICD-10 
 
 **Setup and Usage**
 
-1. Install the environment and dependencies
+1.Install the environment and dependencies
+   
 Make sure you have Python 3.10 installed, then install the required packages:
 
 ```bibtex
