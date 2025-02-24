@@ -57,8 +57,7 @@ Many specialized language models have been widely adopted for predicting ICD-10 
   </tr>
 </table>
 
-## How to make 
-
+## Setup and Usage 
 1. Install the environment and dependencies
 Make sure you have Python 3.10 installed, then install the required packages:
 
@@ -66,6 +65,7 @@ Make sure you have Python 3.10 installed, then install the required packages:
 conda create -n pseudo_relevance python=3.10
 conda activate pseudo_relevance
 ```
+
 Then, install the required packages and set up the project:
 
 ```bibtex
@@ -81,24 +81,27 @@ Place the file here:
 ./dataset/mimiciv/note/discharge.csv.gz  (1.1 GB)
 
 
-    2.2 reference dataset ( https://physionet.org/content/mimiciv/3.0/hosp/#files-panel ) follow my path
+2.2 reference dataset ( https://physionet.org/content/mimiciv/3.0/hosp/#files-panel ) follow my path
              - ./dataset/mimiciv/hosp/d_icd_diagnoses.csv.gz (855.8 KB)
              - ./dataset/mimiciv/hosp/d_icd_procedures.csv.gz (575.4 KB)
              - ./dataset/mimiciv/hosp/diagnoses_icd.csv.gz (32.0 MB)
              - ./dataset/mimiciv/hosp/procedures_icd.csv.gz (7.4 MB)
-    2.3 download model from my public site. extract this file and follow this directory.
+2.3 download model from my public site. extract this file and follow this directory.
              - ./experiment/*
-    2.4 you can run my notebooks steo 1-5 follow each step to get model,...etc output. or skip by download my output that i prepare for you by download from my public site. you will got
+2.4 you can run my notebooks steo 1-5 follow each step to get model,...etc output. or skip by download my output that i prepare for you by download from my public site. you will got
              - ./file/*
 
    
-    bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
+bonus  if you want to see webapplicaion that i usage a little small code you can run notebooks step 6 here are final output
 
 
 ![My Image Description](/files/retrieval/webapp.png)
 
 
 
-Alternarive from runnung if u are well know docker => just 1 hit build and run docker pull sg31147/pseudo_relevance_feedback:latest
-
+## Docker Alternative
+If you are comfortable with Docker, you can use the provided Docker Compose file to pull and run our pre-built image with a single command:
+```
+docker compose up
+```
    
