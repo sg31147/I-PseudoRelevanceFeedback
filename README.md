@@ -79,6 +79,7 @@ source ./bin/activate
 Then, install the required packages and set up the project:
 
 ```bibtex
+git clone https://github.com/sg31147/pseudo_relevance_feedback.git
 pip install -e .
 ```
 
