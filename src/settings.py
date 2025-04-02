@@ -30,3 +30,14 @@ PALETTE = {
 }
 HUE_ORDER = ["PLM-ICD", "LAAT", "MultiResCNN", "CAML", "Bi-GRU", "CNN"]
 MODEL_NAMES = {"PLMICD": "PLM-ICD", "VanillaConv": "CNN", "VanillaRNN": "Bi-GRU"}
+
+
+best_runs = {
+            "CAML": "./experiments/xsm4ojqd",
+            "LAAT": "./experiments/rep5wxro",
+            "PLMICD": "./experiments/8fdtxcm4",
+             "MultiResCNN": "./experiments/jc1u3c6s",
+            "VanillaRNN": "./experiments/djhscsu3",
+            "VanillaConv": "./experiments/kr2vh2uf",
+            }
+

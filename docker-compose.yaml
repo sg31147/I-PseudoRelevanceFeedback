@@ -1,6 +1,6 @@
 services:
   app:
-    # build: .
+    build: .
     image: sg31147/pseudo_relevance_feedback:latest
     ports:
       - "8081:8081"

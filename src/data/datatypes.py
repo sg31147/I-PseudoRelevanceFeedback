@@ -7,7 +7,6 @@ import numpy as np
 import pyarrow as pa
 import pyarrow.compute as pc
 import torch
-from rich.progress import track
 from tqdm import tqdm
 
 from src.settings import ID_COLUMN, TARGET_COLUMN, TEXT_COLUMN
@@ -231,26 +230,13 @@ class Data:
         Args:
             batch_transform (Callable[[list[str]], str]): Batch transform function.
         """
-        max_chunksize=len(self.df)/(mp.cpu_count()-2) if len(self.df)> mp.cpu_count()-2 else len(self.df)
         token_ids_list = []
-        with mp.Pool(mp.cpu_count()-2) as pool:
-            results = []
+        for batch in tqdm(
+            self.df.to_batches(max_chunksize=10000), desc="Transforming text..."
+        ):
+            texts = batch.column(TEXT_COLUMN).to_pylist()
+            token_ids_list += batch_transform(texts)
 
-            for batch in tqdm(
-                self.df.to_batches(max_chunksize=max_chunksize), desc="Transforming text..."
-            ):
-                texts = batch.column(TEXT_COLUMN).to_pylist()
-
-                # args should be passed as a tuple
-                results.append(pool.apply_async(batch_transform, args=(texts,)))
-            pool.close()
-            pool.join()
-            # Collect the results from the workers
-            for result in tqdm(results, desc="Collecting results..."):
-                token_ids_list += result.get()
-                
-            
-      
         # Convert to list of pyarrays
         token_ids = pa.array(token_ids_list, type=pa.list_(pa.int64()))
         del token_ids_list
@@ -262,7 +248,6 @@ class Data:
         )
         self.df = new_table
         os.environ["TOKENIZERS_PARALLELISM"] = "False"
-
 @dataclass
 class Batch:
     """Batch class. Used to store a batch of data."""

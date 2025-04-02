@@ -26,7 +26,7 @@ def fetch_icd_mapping():
 
 # Set up the Streamlit app
 st.set_page_config(
-    page_title="Pseudo-Relevance Feedback on Deep Language Models for Medical Document Summarization",
+    page_title="Utilizing Pseudo-Relevance feedback for automated ICD-10 Medical Coding",
     layout="wide"  # Makes the layout wider
 )
 
@@ -88,8 +88,7 @@ st.markdown(
             background-color: #548CFF; /* Slightly lighter on hover */
         }}
 
-        
-        
+       
     </style>
     """,
     unsafe_allow_html=True
@@ -98,7 +97,7 @@ st.markdown(
 
 
 st.markdown(
-    "<h1 style='text-align: center; color: #004085;'>Pseudo-Relevance Feedback on Deep Language Models for Medical Document Summarization</h1>",
+    "<h1 style='font-size:35px;text-align: center; color: #004085;'>Utilizing Pseudo-Relevance feedback for automated ICD-10 Medical Coding</h1>",
     unsafe_allow_html=True
 )
 
@@ -108,22 +107,31 @@ Task = st.sidebar.selectbox(
     'Document Selection',
     ["Ranking", "Classification"]
 )
+if Task == "Classification":
+    Precisionk = st.sidebar.selectbox(
+        'Precision@k',
+        ["8"],  # Set to "--" when Classification is selected
+        index=0,
+        disabled=True  # Ensure it's disabled
+    )
 
-Precisionk = st.sidebar.selectbox(
-    'Precision@k',
-    [i for i in range(1, 16)],  # Generates numbers 1 to 15
-    index=7,
-    disabled=(Task == "Classification")  # Disable if Task is Classification
-)
+else:
+    Precisionk = st.sidebar.selectbox(
+        'Precision@k',
+        [i for i in range(1, 16)],  # Generates numbers 1 to 15
+        index=7  # Default to 8th item (Precision@8)
+    )
+
+
 
 # Tuning Parameters
 st.sidebar.header("Tuning Parameter")
-iteration = st.sidebar.slider("Iteration", min_value=0, max_value=10, value=2)
-w_alpha = st.sidebar.slider("w_alpha", min_value=0.0, max_value=1.0, value=1.0, step=0.01)
-w_beta = st.sidebar.slider("w_beta", min_value=0.0, max_value=1.0, value=0.1, step=0.01)
-w_gramma = st.sidebar.slider("w_gramma", min_value=0.0, max_value=1.0, value=0.1, step=0.01)
-AvgTopR = st.sidebar.slider("AvgTopR", min_value=1, max_value=40, value=10)
-AvgLowR = st.sidebar.slider("AvgLowR", min_value=1, max_value=40, value=10)
+iteration = st.sidebar.slider("Iteration", min_value=0, max_value=5, value=2)
+TopKSelection = st.sidebar.slider("TopKSelection", min_value=1, max_value=15, value=10)
+CosSim_Thresh = st.sidebar.slider("CosSim_Thresh", min_value=0.0, max_value=1.0, value=0.00, step=0.01)
+alpha = st.sidebar.slider("alpha", min_value=0.0, max_value=1.0, value=1.0, step=0.01)
+beta = st.sidebar.slider("beta", min_value=0.0, max_value=1.0, value=0.1, step=0.01)
+gramma = st.sidebar.slider("gramma", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
 
 # Create columns for wide layout
 col1,col3,col2,col4 = st.columns([15,1,15,1])
@@ -134,143 +142,145 @@ with col1:
     st.subheader("Input Text")
     input_text = st.text_area(
         "Enter your text here for prediction:",
-        value=(
-            "Name: [Patient's Name]\n"
-            "Unit No: [Unit Number]\n"
-            "Admission Date: [Date]\n"
-            "Discharge Date: [Date]\n"
-            "Date of Birth: [DOB]\n"
-            "Sex: [M/F]\n"
-            "Service: [Medical Service]\n"
-            "Surgery: [Surgical Procedure]\n"
-            "Allergies: Corgard, Vasotec\n"
-            "\n"
-            "Attending Physician: [Doctor's Name]\n"
-            "Chief Complaint: Incarcerated inguinal hernia\n"
-            "\n"
-            "Major Surgical or Invasive Procedure:\n"
-            "- Left inguinal hernia repair\n"
-            "\n"
-            "History of Present Illness:\n"
-            "- Atrial fibrillation (AFib) on Apixaban\n"
-            "- Coronary artery disease (CAD) s/p CABG\n"
-            "- Bilateral carotid disease\n"
-            "- COPD/emphysema with recent pneumonia\n"
-            "- Presents for elective left inguinal hernia repair with large incarcerated sigmoid colon\n"
-            "\n"
-            "Past Medical History:\n"
-            "- Bilateral moderate carotid disease\n"
-            "- Congestive heart failure\n"
-            "- Coronary artery disease\n"
-            "- Gastroesophageal reflux disease (GERD)\n"
-            "- Hypertension\n"
-            "- Severe emphysema\n"
-            "- Pulmonary hypertension\n"
-            "- Right bundle branch block\n"
-            "- Benign prostatic hypertrophy\n"
-            "- Hyperlipidemia\n"
-            "- Paroxysmal atrial fibrillation\n"
-            "- History of histoplasmosis\n"
-            "\n"
-            "Past Surgical History:\n"
-            "- Cardioversion\n"
-            "- Right lower lobe lobectomy\n"
-            "- Coronary bypass surgery\n"
-            "\n"
-            "Social & Family History: Non-contributory\n"
-            "\n"
-            "Physical Exam:\n"
-            "- General: Awake and alert\n"
-            "- CV: Irregularly irregular rhythm, normal rate\n"
-            "- Respiratory: CTAB (Clear to auscultation bilaterally)\n"
-            "- GI: Soft, appropriately tender near incision, non-distended\n"
-            "- Incision: Clean, dry, intact, no erythema\n"
-            "- Extremities: Warm and well-perfused\n"
-            "\n"
-            "Pertinent Results:\n"
-            "- Brief hospital course: Patient admitted for left incarcerated inguinal hernia repair.\n"
-            "- Postoperative course: Uncomplicated. Transferred to regular nursing floor after PACU stay.\n"
-            "- Pain controlled with IV medications initially, then transitioned to PO meds.\n"
-            "- Ambulating independently, tolerating regular diet.\n"
-            "- Bowel regimen given, passed flatus, and voided independently.\n"
-            "- Discharged home in stable condition with follow-up scheduled.\n"
-            "\n"
-            "Discharge Medications:\n"
-            "- Amiodarone 200 mg PO daily\n"
-            "- Apixaban 5 mg PO BID\n"
-            "- Aspirin 81 mg PO daily\n"
-            "- Docusate Sodium 100 mg PO BID\n"
-            "- Losartan Potassium 50 mg PO daily\n"
-            "- Omeprazole 40 mg PO daily\n"
-            "- Triamterene/HCTZ 37.5/25 mg PO daily\n"
-            "- Acetaminophen 500 mg PO Q6H PRN pain/fever (Max: 4g/day)\n"
-            "- Oxycodone Immediate Release 5 mg PO Q4H PRN pain\n"
-            "- Senna 8.6 mg PO HS while taking oxycodone\n"
-            "- Align Bifidobacterium Infantis 4 mg PO daily\n"
-            "- Coenzyme Q10 100 mg PO daily\n"
-            "- Rosuvastatin Calcium 10 mg PO QPM\n"
-            "- Vitamin D 1000 units PO daily\n"
-            "\n"
-            "Discharge Disposition: Home with service facility\n"
-            "Discharge Diagnosis: Inguinal hernia\n"
-            "\n"
-            "Discharge Condition:\n"
-            "- Mental status: Clear and coherent\n"
-            "- Level of consciousness: Alert and interactive\n"
-            "- Activity status: Ambulatory, independent\n"
-            "\n"
-            "Discharge Instructions:\n"
-            "Dear Mr. [Last Name],\n"
-            "It was a pleasure taking care of you. You were admitted for inguinal hernia repair and have recovered well. Please follow the recommendations below for a smooth recovery:\n"
-            "\n"
-            "Activity:\n"
-            "- Do not drive until you stop taking pain medicine and feel capable of responding in an emergency.\n"
-            "- You may climb stairs and go outside but avoid long-distance travel until cleared by your surgeon.\n"
-            "- Avoid lifting more than 10 lbs for 6 weeks.\n"
-            "- Light exercise is allowed when you feel comfortable; heavy exercise can resume after 6 weeks.\n"
-            "- Avoid bathtubs/swimming pools until your incision heals (ask your doctor for specifics).\n"
-            "\n"
-            "How You May Feel:\n"
-            "- You may feel weak for several weeks; naps may help.\n"
-            "- Sore throat may occur due to intubation.\n"
-            "- Temporary difficulty concentrating, poor appetite, or mild depression is normal.\n"
-            "\n"
-            "Incision Care:\n"
-            "- Slight redness around the incision is normal.\n"
-            "- Do not remove Steri-Strips for 2 weeks (or allow them to fall off naturally).\n"
-            "- Gently wash around the incision.\n"
-            "- Avoid direct sun exposure to the incision.\n"
-            "- Call your surgeon if severe drainage or redness occurs.\n"
-            "\n"
-            "Bowel Management:\n"
-            "- Constipation is common due to pain medications.\n"
-            "- Use a stool softener (Colace) or mild laxative (Milk of Magnesia) as needed.\n"
-            "- Call your surgeon if no bowel movement in 48 hours.\n"
-            "- Diarrhea after surgery may occur; avoid anti-diarrheal medications unless directed.\n"
-            "\n"
-            "Pain Management:\n"
-            "- Mild pain is expected but should improve daily.\n"
-            "- Take prescribed pain medications as directed.\n"
-            "- Contact your surgeon for severe pain, fever above 101°F, or sudden changes in pain quality.\n"
-            "\n"
-            "Medications:\n"
-            "- Resume preoperative medications unless instructed otherwise.\n"
-            "- If unsure about any medication, contact your surgeon.\n"
-            "\n"
-            "Follow-Up Instructions: [Insert follow-up appointment details]\n"
-        ),
+        value=("""
+Name:  ___                   Unit No:   ___
+ 
+Admission Date:  ___              Discharge Date:   ___
+ 
+Date of Birth:  ___             Sex:   F
+ 
+Service: PLASTIC
+ 
+Allergies: 
+Arava / ceftriaxone / ciprofloxacin / Cymbalta / Enbrel / 
+methotrexate / Penicillins / shellfish derived / Sulfa 
+(Sulfonamide Antibiotics) / aztreonam
+ 
+Attending: ___.
+ 
+Chief Complaint:
+Right ___ finger pain
+ 
+Major Surgical or Invasive Procedure:
+Bedside I&D on ___ by Dr. ___
+
+ 
+___ of Present Illness:
+___ female presents with h/o Right ___ digit neuroma now POD8
+from neuroma excision who presents from clinic with c/f surgical
+site infection. Reports over last 48 hours has noticed increased
+pain and redness around the incision. Reports increased
+difficulty bending and moving the finger. Reports felt feverish
+though did not check temperature. Reports went to clinic today
+and was sent in for further evaluation and IV abx. 
+Denies drainage. Reports the erythema is now advancing 
+proximally
+up the lateral aspect of the hand.  She denies chills, nausea,
+vomiting, abdominal pain, chest pain, SOB. 
+ 
+Past Medical History:
+PAST MEDICAL HISTORY:  
+- seronegative arthritis - previously on enbrel then humira 
+which
+was stopped in ___ due to concern for infections
+- asthma
+- obesity
+- s/p left hip infection (___) - treated with 4 weeks
+antibiotics, did not involve joint space per patient
+- necrotizing fasciitis of the chest wall in ___, s/p extended
+hospitalization and multiple debridements, ?___ strep
+- ?culture negative endocarditis concurrent with nec. fasc. in
+___
+
+PAST SURGICAL HISTORY:
+- multiple debridements for chest wall nec. fasc. (___)
+ 
+Social History:
+___
+Family History:
+No history of recurrent infections
+ 
+Physical Exam:
+Nonlabored on breathing on RA
+Detailed examination of the RUE:
+minimal erythema of the R ___ finger and ulnar aspect of palm, 
+incision are without drainage
+ 
+Pertinent Results:
+___ 04:53AM BLOOD WBC-4.3 RBC-3.52* Hgb-10.2* Hct-31.5* 
+MCV-90 MCH-29.0 MCHC-32.4 RDW-13.0 RDWSD-42.7 Plt ___
+ 
+Brief Hospital Course:
+The patient was seen and evaluated by the hand surgery team in 
+the emergency department and was found to have Right ___ finger 
+infection. She was admitted to the hand surgery service and was 
+initially treated with IV vancomycin and cefepime and 
+transitioned to oral clindamycin on discharge. On ___, a beside 
+I&D was performed and she tolerated the procedure well. No 
+obvious pus.
+
+At the time of discharge, she was tolerating a PO diet, pain was 
+well controlled. She is in agreement with the discharge.
+ 
+Discharge Medications:
+1.  Acetaminophen 650 mg PO 5X/DAY 
+RX *acetaminophen 325 mg 2 capsule(s) by mouth 5 times a day 
+Disp #*120 Capsule Refills:*0 
+2.  Clindamycin 300 mg PO Q6H Duration: 14 Days 
+RX *clindamycin HCl 300 mg 1 capsule(s) by mouth every 6 hours 
+Disp #*56 Capsule Refills:*0 
+3.  HYDROmorphone (Dilaudid) 2 mg PO Q4H:PRN Pain - Moderate 
+RX *hydromorphone [Dilaudid] 2 mg 1 tablet(s) by mouth every 4 
+hours Disp #*30 Tablet Refills:*0 
+4.  ALPRAZolam 0.5 mg PO BID:PRN anxiety  
+5.  Hydroxychloroquine Sulfate 200 mg PO DAILY  
+6.  Montelukast 10 mg PO DAILY  
+7.  Venlafaxine XR 75 mg PO DAILY  
+8.  Xeljanz (tofacitinib) 5 mg oral BID  
+
+ 
+Discharge Disposition:
+Home
+ 
+Discharge Diagnosis:
+Right hand ___ finger infection
+
+ 
+Discharge Condition:
+Stable
+
+ 
+Discharge Instructions:
+Wound care:
+Keep the wound clean and dry
+Hydrogen peroxide/saline soaks twice daily for 20 minutes until 
+___
+
+Medications:
+Resume your home medications
+Take narcotics only for severe pain
+Take clindamycin for 14 days for your finger infection
+
+Warning signs:
+Increasing pain, swelling or discharge of your finger
+Fevers and chills
+ 
+Followup Instructions:
+___
+"""
+    ),
         placeholder="Enter your text here for prediction.",
-        height=300
+        height=350
     )
 
 
 # Output section
 
-    st.subheader("Prediction Results")
+    st.subheader("Ground Truth")
     output_text = st.multiselect(
-        "Ground Truth",
+        "Enter the ground truth ICD-10 code(s):",
         options=fetch_icd_mapping(),
-        default=["0YU60JZ", "E78.5", "I10.", "I25.10", "I27.2", "I45.10", "I48.0", "I50.9", "J43.9", "K21.9", "K40.30", "N40.0", "Z79.82", "Z87.891", "Z95.1"],
+        default=[  "Y83.8", "T81.4XXA", "Y92.9", "J45.909", "02HV33Z", "E66.9","M19.90", "Z68.33", "L03.011"],
         help="Select the appropriate codes for ground truth."
     )
 
@@ -278,6 +288,8 @@ with col1:
 # Submit button
 
 if st.button("Predict"):
+    
+    
     payload = {
         "Precisionk": Precisionk,
         "id": [0],
@@ -285,12 +297,12 @@ if st.button("Predict"):
         "target": [output_text],
         "split": "test",
         "iteration": iteration,
-        "w_alpha": w_alpha,
-        "w_beta": w_beta,
-        "NavgTops": AvgTopR,
-        "w_gramma": w_gramma,
-        "NavgLow": AvgLowR,
-        "Task": Task,
+        "TopKSelection": TopKSelection,
+        "CosSim_Thresh": CosSim_Thresh,
+        "alpha": alpha,
+        "beta": beta,
+        "gramma": gramma,
+        "Task": Task
     }
 
     try:
@@ -302,9 +314,11 @@ if st.button("Predict"):
         
         if response.status_code == 200:
             result = response.json()
+          
             if "data" in result:
-                predictions = result["data"]["0"].get("predictions_topk", {})
-                match_percentage = result["data"]["0"].get("match_percentage_topk", 0)
+                
+                predictions = result["data"]["0"].get("result", {})
+                match_percentage = result["data"]["0"].get("match_percentage", 0)
 
                 if predictions:
                     with col2:

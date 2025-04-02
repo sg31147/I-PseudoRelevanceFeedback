@@ -1,6 +1,6 @@
 - name: WandbCallback
   configs:
-    project: automatic-medical-coding
+    project: psf-automatic-icd-10
     entity: null
     # dir: /data/je
 - name: SaveBestModelCallback

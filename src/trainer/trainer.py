@@ -425,7 +425,7 @@ class Trainer:
         self.gradient_scaler.load_state_dict(checkpoint["scaler"])
         self.epoch = checkpoint["epoch"]
         self.best_db = checkpoint["db"]
-        
+        print(self.best_db)
         
 
         pprint("Loaded checkpoint from {}".format(self.experiment_path / file_name))
@@ -438,12 +438,12 @@ class Trainer:
         self.dataloaders["train"].dataset.text_transform.save(self.experiment_path)
         self.dataloaders["train"].dataset.label_transform.save(self.experiment_path)
 
-    def save_retrieval(self,file_name) -> None:
+    def save_retrieval(self) -> None:
         
         
        # Define the dataloader keys and corresponding file names
         keys_and_files = {
-            'train': f'{file_name}',
+            'train': 'train_targets.feather',
             'val': 'val_targets.feather',
             'test': 'test_targets.feather'
         }
@@ -472,6 +472,6 @@ class Trainer:
     def save_final_model(self) -> None:
         self.save_checkpoint("final_model.pt")
         self.save_transforms() #เก็บ text_transform label_transform
-        self.save_retrieval("retrieve.feather")
+        self.save_retrieval()
           
         OmegaConf.save(self.config, self.experiment_path / "config.yaml")

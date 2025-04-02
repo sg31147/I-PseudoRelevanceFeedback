@@ -19,7 +19,7 @@ def f1_score_db_tuning(logits, targets, average="micro", type="single"):
     
     for idx, db in enumerate(dbs):
         predictions = (logits > db).long()
-        predictions
+       
         tp[idx] = torch.sum((predictions) * (targets), dim=0)
         fp[idx] = torch.sum(predictions * (1 - targets), dim=0)
         fn[idx] = torch.sum((1 - predictions) * targets, dim=0)

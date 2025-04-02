@@ -16,9 +16,9 @@ RUN pip install --no-cache-dir -e .
 
 COPY ./configs /app/configs
 
-COPY ./experiments/jfywyfod/best_model.pt /app/experiments/jfywyfod/best_model.pt
-COPY ./experiments/jfywyfod/retrieve.feather /app/experiments/jfywyfod/retrieve.feather
-COPY ./experiments/jfywyfod/target2index.json /app/experiments/jfywyfod/target2index.json
+COPY ./experiments/8fdtxcm4/best_model.pt /app/experiments/8fdtxcm4/best_model.pt
+COPY ./experiments/8fdtxcm4/train_targets.feather /app/experiments/8fdtxcm4/train_targets.feather
+COPY ./experiments/8fdtxcm4/target2index.json /app/experiments/8fdtxcm4/target2index.json
 
 COPY ./dataset/mimiciv/hosp /app/dataset/mimiciv/hosp
 

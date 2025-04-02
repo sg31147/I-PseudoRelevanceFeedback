@@ -1,6 +1,6 @@
 - name: WandbCallback
   configs:
-    project: automatic-medical-coding-sweep
+    project: psf-automatic-medical-coding-sweep
     entity: null
     # dir: /data/research
 - name: EarlyStoppingCallback
