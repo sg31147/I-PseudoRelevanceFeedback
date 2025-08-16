@@ -1,6 +1,6 @@
 # ⚕️PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS FOR MEDICAL DOCUMENT SUMMARIZATION
 
-This paper is publicly available in the JCSSE proceedings.s
+This paper is publicly available in the JCSSE proceedings.
 
 ```bibtex
 @inproceedings{Akkhawatthanakun2025,
