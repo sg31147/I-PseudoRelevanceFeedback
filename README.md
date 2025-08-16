@@ -3,16 +3,15 @@
 This paper is publicly available on npj Medicine.
 
 ```bibtex
-@inproceedings{PSEUDO-RELEVANCE FEEDBACK,
-  address = {Nakhon Pathom, Thailand},
-  title = {PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS FOR MEDICAL DOCUMENT SUMMARIZATION},
-  isbn = {xxx-x-xxxx-xxxx-x},
-  shorttitle = {PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS},
-  doi = {xx.xx/xxxxxxx.xxxxxxx},
-  booktitle = {Medicine Journal},
-  publisher = {Npj medicine},
-  author = {Kitti Akkhawatthanakun1, Paisarn Muneesawang, Lalita Narupiyakul, and Konlakorn Wongpatikaseree},
-  year = {2025}
+@inproceedings{Akkhawatthanakun2025,
+  author    = {Kitti Akkhawatthanakun and Lalita Narupiyakul and Konlakorn Wongpatikaseree and Narit Hnoohom and Paisarn Muneesawang},
+  title     = {Integrating Pseudo-Relevance Feedback with Deep Learning for Automated ICD-10 Coding},
+  booktitle = {Proceedings of the 22nd International Joint Conference on Computer Science and Software Engineering (JCSSE)},
+  year      = {2025},
+  address   = {Chiang Mai, Thailand},
+  publisher = {IEEE},
+  isbn      = {979-8-3315-7358-4},
+  doi       = {xxxx.xxxx/xxxxx}
 }
 ```
 
