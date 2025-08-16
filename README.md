@@ -1,6 +1,6 @@
 # ⚕️PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS FOR MEDICAL DOCUMENT SUMMARIZATION
 
-This paper is publicly available on npj Medicine.
+This paper is publicly available on npj Medicine.หห
 
 ```bibtex
 @inproceedings{Akkhawatthanakun2025,
