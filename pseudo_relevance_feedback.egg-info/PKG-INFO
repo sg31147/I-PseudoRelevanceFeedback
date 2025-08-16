@@ -1,78 +1,147 @@
 Metadata-Version: 2.1
 Name: pseudo-relevance-feedback
 Version: 1.0.0
-Home-page: 
+Summary: UNKNOWN
+Home-page: UNKNOWN
 Author: 
+License: UNKNOWN
+Platform: UNKNOWN
 Requires-Python: >=3.10.0
 Description-Content-Type: text/markdown
 License-File: LICENSE
-Requires-Dist: hydra-core
-Requires-Dist: rich
-Requires-Dist: pyarrow
-Requires-Dist: vaex
-Requires-Dist: numpy==1.26.4
-Requires-Dist: torch
-Requires-Dist: tqdm
-Requires-Dist: scikit-learn
-Requires-Dist: transformers
-Requires-Dist: torchmetrics
-Requires-Dist: gensim
-Requires-Dist: wandb
-Requires-Dist: seaborn
-Requires-Dist: wget
-Requires-Dist: statsmodels
-Requires-Dist: nest_asyncio
-Requires-Dist: fastapi
-Requires-Dist: uvicorn
-Requires-Dist: streamlit
-Requires-Dist: adjustText
 
-# ⚕️Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study
+# ⚕️PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS FOR MEDICAL DOCUMENT SUMMARIZATION
 
-Official source code repository for the SIGIR 2023 paper [Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://dl.acm.org/doi/10.1145/3539618.3591918)
-
+This paper is publicly available on npj Medicine.
 
 ```bibtex
-@inproceedings{edinAutomatedMedicalCoding2023,
-  address = {Taipei, Taiwan},
-  title = {Automated {Medical} {Coding} on {MIMIC}-{III} and {MIMIC}-{IV}: {A} {Critical} {Review} and {Replicability} {Study}},
-  isbn = {978-1-4503-9408-6},
-  shorttitle = {Automated {Medical} {Coding} on {MIMIC}-{III} and {MIMIC}-{IV}},
-  doi = {10.1145/3539618.3591918},
-  booktitle = {Proceedings of the 446th {International} {ACM} {SIGIR} {Conference} on {Research} and {Development} in {Information} {Retrieval}},
-  publisher = {ACM Press},
-  author = {Edin, Joakim and Junge, Alexander and Havtorn, Jakob D. and Borgholt, Lasse and Maistro, Maria and Ruotsalo, Tuukka and Maaløe, Lars},
-  year = {2023}
+@inproceedings{PSEUDO-RELEVANCE FEEDBACK,
+  address = {Nakhon Pathom, Thailand},
+  title = {PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS FOR MEDICAL DOCUMENT SUMMARIZATION},
+  isbn = {xxx-x-xxxx-xxxx-x},
+  shorttitle = {PSEUDO-RELEVANCE FEEDBACK ON DEEP LANGUAGE MODELS},
+  doi = {xx.xx/xxxxxxx.xxxxxxx},
+  booktitle = {Medicine Journal},
+  publisher = {Npj medicine},
+  author = {Kitti Akkhawatthanakun1, Paisarn Muneesawang, Lalita Narupiyakul, and Konlakorn Wongpatikaseree},
+  year = {2025}
 }
 ```
 
-## Update
-We released a new [paper](https://arxiv.org/pdf/2406.08958) and [repository](https://github.com/JoakimEdin/explainable-medical-coding/tree/main) for explainable medical coding. The new repository offers the following:
-- **Explainability**: Multiple feature attribution methods and metrics for multi-label classification. 
-- **Implementation of a modified PLM-ICD**: We have fixed the problem of PLM-ICD occasionally collapsing during training.
-- **Huggingface Datasets**: we implemented MIMIC-III, IV, and MDACE as HuggingFace datasets.
-- **Inference code**: We provide code for inference without needing the training dataset.
-The new repository no longer supports CNN, Bi-GRU, CAML, LAAT, and MultiResCNN.
+**Introduction**
 
-## Introduction 
-Automatic medical coding is the task of automatically assigning diagnosis and procedure codes based on discharge summaries from electronic health records. This repository contains the code used in the paper Automated medical coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study. The repository contains code for training and evaluating medical coding models and new splits for MIMIC-III and the newly released MIMIC-IV. The following models have been implemented:
-
-| Model | Paper | Original Code |
-| ----- | ----- | ------------- |
-| CNN,Bi-GRU,CAML,MultiResCNN,LAAT,PLM-ICD   |[Automated Medical Coding on MIMIC-III and MIMIC-IV: A Critical Review and Replicability Study](https://arxiv.org/abs/2304.10909) | [link](https://github.com/JoakimEdin/medical-coding-reproducibility) | 
+Many specialized language models have been widely adopted for predicting ICD-10 codes. However, there is still a lack of research focused on improving the accuracy and reliability of these models. In response to this gap, we propose a novel approach that incorporates information-retrieval techniques to enhance prediction quality. Specifically, our method uses the Rocchio algorithm to refine and optimize model outputs, building on existing language models to improve their practical applicability. We have also developed a web-based application—a dynamic playground—where users can interact with and evaluate our method once they have followed the implementation steps described below.
 
 
-The splits are found in `files/data`. The splits are described in the paper.
-
-## How to reproduce results
-### Setup Conda environment
-1. Create a conda environement `conda create -n coding python=3.10`
-2. Install the packages `pip install . -e`
+![My Image Description](/files/retrieval/method3.png)
 
 
-### Prepare MIMIC-IV
-This code has been developed on MIMIC-IV and MIMIC-IV v2.2. 
-1. Download MIMIC-IV and MIMIC-IV-NOTE into your preferred location `path/to/mimiciv` and `path/to/mimiciv-note`. Please note that you need to complete training to acces the data. The training is free, but takes a couple of hours.  - [mimiciv](https://physionet.org/content/mimiciv/2.2/) and [mimiciv-note](https://physionet.org/content/mimic-iv-note/2.2/)
-2. Open the file `src/settings.py`
-3. Change the variable `DOWNLOAD_DIRECTORY_MIMICIV` to the path of your downloaded data `./dataset/mimiciv`
-4. Change the variable `DOWNLOAD_DIRECTORY_MIMICIV_NOTE` to the path of your downloaded data `./dataset/mimiciv-note`
+**Related Research**
+
+<table style="margin: auto; border-collapse: collapse;">
+  <tr>
+    <th style="text-align: center; vertical-align: middle;">Model</th>
+    <th style="text-align: center; vertical-align: middle;">Paper</th>
+    <th style="text-align: center; vertical-align: middle;">Original Code</th>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">CNN</td>
+    <td rowspan="6" style="text-align: center; vertical-align: middle;">
+      <a href="https://arxiv.org/abs/2304.10909">
+        Automated Medical Coding on MIMIC-III and MIMIC-IV: 
+        A Critical Review and Replicability Study
+      </a>
+    </td>
+    <td rowspan="6" style="text-align: center; vertical-align: middle;">
+      <a href="https://github.com/JoakimEdin/medical-coding-reproducibility">
+        Original Code
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">Bi-GRU</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">CAML</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">MultiResCNN</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">LAAT</td>
+  </tr>
+  <tr>
+    <td style="text-align: center; vertical-align: middle;">PLM-ICD</td>
+  </tr>
+</table>
+
+
+**Setup and Usage**
+
+1. Install the environment and dependencies
+
+Make sure you have Python 3.10 installed, then install the required packages:
+
+```bibtex
+python -m venv pseudo_relevance_feedback
+cd ./pseudo_relevance_feedback
+source ./bin/activate
+```
+
+Then, install the required packages and set up the project:
+
+```bibtex
+git clone https://github.com/sg31147/pseudo_relevance_feedback.git
+pip install -e .
+```
+
+
+2. Download the MIMIC-IV dataset from PhysioNet. You will need to request access to the MIMIC-IV data, which requires following the credentialing process on PhysioNet. Note that it typically takes 2–3 days to receive approval. They will review your intended use to ensure it is not for commercial purposes or for direct use in large language models (LLMs), as both are prohibited. After receiving approval, you can proceed with downloading the dataset.
+
+3. [Clinical notes](https://physionet.org/content/mimic-iv-note/2.2/) (MIMIC-IV Note)
+
+    	Place the file at: ./dataset/mimiciv/note/*
+
+4. [Reference tables](https://physionet.org/content/mimiciv/2.2/) (MIMIC-IV hosp files):
+
+    - d_icd_diagnoses.csv.gz (855.8 KB)
+    - d_icd_procedures.csv.gz (575.4 KB)
+    - diagnoses_icd.csv.gz (32.0 MB)
+    - procedures_icd.csv.gz (7.4 MB)
+
+			Place them at: ./dataset/mimiciv/hosp/*
+  
+  
+5. Instructions:
+
+    Option A: Run the Notebooks
+  
+      Run notebooks steps 1–5 for data preprocessing, model training, and retrieval.
+    
+    Option B: Use Pre-Built Output
+  
+      Skip the above steps by downloading the prepared output from my public site.
+  
+      Place the files in:
+      - ./file/*
+      - ./experiment/*
+
+**Web Application Playground**
+
+To see the web application in action, run notebook step 6 to view the final output.
+
+![My Image Description](/files/retrieval/result5.png)
+
+**Docker Alternative**
+
+
+
+If you’re comfortable with Docker, you can use the included Docker Compose file to pull and run the pre-built image:
+
+```
+docker compose up
+```
+
+Enjoy exploring this cutting-edge approach to medical document summarization—may it illuminate new pathways for more efficient, patient-centered care.
+
+

@@ -131,7 +131,7 @@ TopKSelection = st.sidebar.slider("TopKSelection", min_value=1, max_value=15, va
 CosSim_Thresh = st.sidebar.slider("CosSim_Thresh", min_value=0.0, max_value=1.0, value=0.00, step=0.01)
 alpha = st.sidebar.slider("alpha", min_value=0.0, max_value=1.0, value=1.0, step=0.01)
 beta = st.sidebar.slider("beta", min_value=0.0, max_value=1.0, value=0.1, step=0.01)
-gramma = st.sidebar.slider("gramma", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
+gamma = st.sidebar.slider("gramma", min_value=0.0, max_value=1.0, value=0.0, step=0.01)
 
 # Create columns for wide layout
 col1,col3,col2,col4 = st.columns([15,1,15,1])
@@ -301,7 +301,7 @@ if st.button("Predict"):
         "CosSim_Thresh": CosSim_Thresh,
         "alpha": alpha,
         "beta": beta,
-        "gramma": gramma,
+        "gamma": gamma,
         "Task": Task
     }
 

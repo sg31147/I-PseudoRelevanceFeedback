@@ -21,7 +21,7 @@ This paper is publicly available on npj Medicine.
 Many specialized language models have been widely adopted for predicting ICD-10 codes. However, there is still a lack of research focused on improving the accuracy and reliability of these models. In response to this gap, we propose a novel approach that incorporates information-retrieval techniques to enhance prediction quality. Specifically, our method uses the Rocchio algorithm to refine and optimize model outputs, building on existing language models to improve their practical applicability. We have also developed a web-based application—a dynamic playground—where users can interact with and evaluate our method once they have followed the implementation steps described below.
 
 
-![My Image Description](/files/retrieval/pesudo_relevance_feedback.png)
+![My Image Description](/files/retrieval/method3.png)
 
 
 **Related Research**
@@ -118,7 +118,7 @@ pip install -e .
 
 To see the web application in action, run notebook step 6 to view the final output.
 
-![My Image Description](/files/retrieval/webapp.png)
+![My Image Description](/files/retrieval/result5.png)
 
 **Docker Alternative**
 

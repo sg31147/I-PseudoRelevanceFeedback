@@ -1,7 +1,7 @@
 import torch
 
 
-def pseudo_relevance_feedback(batch_a, batch_b,CosSim_Thresh = 0.00, TopKSelection=5,alpha=1,beta=0.1,gramma=0, chunk_size_b=10000):
+def pseudo_relevance_feedback(batch_a, batch_b,CosSim_Thresh = 0.00, TopKSelection=5,alpha=1,beta=0.1,gamma=0, chunk_size_b=10000):
 
     epsilon = 1e-15
  
@@ -42,7 +42,7 @@ def pseudo_relevance_feedback(batch_a, batch_b,CosSim_Thresh = 0.00, TopKSelecti
         if torch.isnan(non_relevance_doc).any():
             non_relevance_doc=torch.zeros(b_chunk.size(0), b_chunk.size(1))
         
-        relevance_feedback_result[j:j + chunk_size_b] = ((alpha*b_chunk) + (beta * relevance_doc) - (gramma* non_relevance_doc))
+        relevance_feedback_result[j:j + chunk_size_b] = ((alpha*b_chunk) + (beta * relevance_doc) - (gamma* non_relevance_doc))
 
       
     return relevance_feedback_result

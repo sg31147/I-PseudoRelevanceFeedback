@@ -164,7 +164,7 @@ class TestDataModel(BaseModel):
     CosSim_Thresh: float = Field(10, ge=0, le=1, description="CosSim_Thresh must be between 0 and 1")
     alpha: float = Field(1, ge=0, le=1, description="alpha must be between 0 and 1")
     beta: float = Field(0.1, ge=0, le=1, description="beta must be between 0 and 1")
-    gramma: float = Field(0.1, ge=0, le=1, description="gramma must be between 0 and 1")
+    gamma: float = Field(0.1, ge=0, le=1, description="gamma must be between 0 and 1")
     Precisionk: int = Field(8, ge=1, le=15, description="precision@k must be between 1 and 15")
 
 # Apply nest_asyncio to allow FastAPI to run within Jupyter Notebook
@@ -291,14 +291,14 @@ async def predict(Testdata: TestDataModel):
     Task=Testdata.Task
     alpha=Testdata.alpha
     beta=Testdata.beta
-    gramma=Testdata.gramma
+    gamma=Testdata.gamma
     TopKSelection=Testdata.TopKSelection
     CosSim_Thresh=Testdata.CosSim_Thresh
     Precisionk = Testdata.Precisionk
     for i in range(1,Testdata.iteration):
 
         logits=pseudo_relevance_feedback(retrieve, logits, TopKSelection=TopKSelection, CosSim_Thresh=CosSim_Thresh, 
-                                                alpha=alpha, beta=beta, gramma=gramma, 
+                                                alpha=alpha, beta=beta, gamma=gamma, 
                                                 chunk_size_b=10000)
 
 
